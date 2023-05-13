@@ -42,4 +42,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeFromDB.setEmailId(employee.getEmailId());
         return employeeRepository.save(employeeFromDB);
     }
+
+    @Override
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteById(id);
+    }
 }

@@ -35,4 +35,11 @@ public interface EmployeeService {
      * @return Updated employee
      */
     Employee updateEmployee(Employee employee);
+
+    /**
+     * Remove employee from DB
+     *
+     * @param id Employee ID
+     */
+    void deleteEmployee(Long id);
 }
