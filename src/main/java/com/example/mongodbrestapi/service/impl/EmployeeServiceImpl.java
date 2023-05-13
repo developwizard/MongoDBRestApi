@@ -1,6 +1,7 @@
 package com.example.mongodbrestapi.service.impl;
 
 import com.example.mongodbrestapi.entity.Employee;
+import com.example.mongodbrestapi.entity.EmployeeDTO;
 import com.example.mongodbrestapi.exception.ResourceNotFoundException;
 import com.example.mongodbrestapi.repository.EmployeeRepository;
 import com.example.mongodbrestapi.service.EmployeeService;
@@ -18,8 +19,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee saveEmployee(Employee employee) {
+    public Employee saveEmployee(EmployeeDTO employeeDTO) {
+        val employee = new Employee();
         employee.setId(0);
+        employee.setFirstName(employeeDTO.getFirstName());
+        employee.setLastName(employeeDTO.getLastName());
+        employee.setEmailId(employeeDTO.getEmailId());
         return employeeRepository.save(employee);
     }
 
@@ -34,12 +39,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee updateEmployee(Employee employee) {
-        val employeeFromDB = employeeRepository.findById(employee.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Employee", "ID", employee.getId()));
-        employeeFromDB.setFirstName(employee.getFirstName());
-        employeeFromDB.setLastName(employee.getLastName());
-        employeeFromDB.setEmailId(employee.getEmailId());
+    public Employee updateEmployee(EmployeeDTO employeeDTO) {
+        val employeeFromDB = employeeRepository.findById(employeeDTO.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Employee", "ID", employeeDTO.getId()));
+        employeeFromDB.setFirstName(employeeDTO.getFirstName());
+        employeeFromDB.setLastName(employeeDTO.getLastName());
+        employeeFromDB.setEmailId(employeeDTO.getEmailId());
         return employeeRepository.save(employeeFromDB);
     }
 

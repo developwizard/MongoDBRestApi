@@ -1,6 +1,7 @@
 package com.example.mongodbrestapi.controller;
 
 import com.example.mongodbrestapi.entity.Employee;
+import com.example.mongodbrestapi.entity.EmployeeDTO;
 import com.example.mongodbrestapi.service.EmployeeService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,12 +19,12 @@ public class EmployeeController {
     /**
      * Create new employee
      *
-     * @param employee Employee to save
+     * @param employeeDTO Employee to save
      * @return Employee
      */
     @PostMapping
-    public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeService.saveEmployee(employee);
+    public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.saveEmployee(employeeDTO);
     }
 
     /**
@@ -50,12 +51,12 @@ public class EmployeeController {
     /**
      * Update employee
      *
-     * @param employee Employee to update
+     * @param employeeDTO Employee to update
      * @return Updated employee
      */
     @PutMapping
-    public Employee updateEmployee(@RequestBody Employee employee) {
-        return employeeService.updateEmployee(employee);
+    public Employee updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.updateEmployee(employeeDTO);
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.example.mongodbrestapi.service;
 
 import com.example.mongodbrestapi.entity.Employee;
+import com.example.mongodbrestapi.entity.EmployeeDTO;
 
 import java.util.List;
 
@@ -8,10 +9,10 @@ public interface EmployeeService {
     /**
      * Save employee into DB
      *
-     * @param employee Employee
+     * @param employeeDTO Employee
      * @return Saved Employee
      */
-    Employee saveEmployee(Employee employee);
+    Employee saveEmployee(EmployeeDTO employeeDTO);
 
     /**
      * Retrieves all employees from DB
@@ -31,10 +32,10 @@ public interface EmployeeService {
     /**
      * Update employee in DB
      *
-     * @param employee Employee to update
+     * @param employeeDTO Employee to update
      * @return Updated employee
      */
-    Employee updateEmployee(Employee employee);
+    Employee updateEmployee(EmployeeDTO employeeDTO);
 
     /**
      * Remove employee from DB
