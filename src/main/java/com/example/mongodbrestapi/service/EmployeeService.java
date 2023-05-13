@@ -2,6 +2,8 @@ package com.example.mongodbrestapi.service;
 
 import com.example.mongodbrestapi.entity.Employee;
 
+import java.util.List;
+
 public interface EmployeeService {
     /**
      * Save employee into DB
@@ -10,4 +12,11 @@ public interface EmployeeService {
      * @return Saved Employee
      */
     Employee saveEmployee(Employee employee);
+
+    /**
+     * Retrieves all employees from DB
+     *
+     * @return Employee list
+     */
+    List<Employee> getAllEmployees();
 }

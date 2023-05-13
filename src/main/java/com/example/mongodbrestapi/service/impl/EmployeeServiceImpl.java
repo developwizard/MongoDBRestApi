@@ -5,6 +5,8 @@ import com.example.mongodbrestapi.repository.EmployeeRepository;
 import com.example.mongodbrestapi.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
@@ -17,5 +19,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee saveEmployee(Employee employee) {
         employee.setId(0);
         return employeeRepository.save(employee);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
     }
 }
