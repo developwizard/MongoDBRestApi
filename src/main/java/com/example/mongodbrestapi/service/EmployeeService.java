@@ -2,6 +2,7 @@ package com.example.mongodbrestapi.service;
 
 import com.example.mongodbrestapi.entity.Employee;
 import com.example.mongodbrestapi.entity.EmployeeDTO;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public interface EmployeeService {
      * @param employeeDTO Employee
      * @return Saved Employee
      */
+    @Transactional
     Employee saveEmployee(EmployeeDTO employeeDTO);
 
     /**
@@ -35,6 +37,7 @@ public interface EmployeeService {
      * @param employeeDTO Employee to update
      * @return Updated employee
      */
+    @Transactional
     Employee updateEmployee(EmployeeDTO employeeDTO);
 
     /**
