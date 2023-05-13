@@ -19,4 +19,12 @@ public interface EmployeeService {
      * @return Employee list
      */
     List<Employee> getAllEmployees();
+
+    /**
+     * Retrieve employee by ID from DB
+     *
+     * @param id Employee ID
+     * @return Employee
+     */
+    Employee findEmployeeById(Long id);
 }

@@ -15,13 +15,35 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    /**
+     * Create new employee
+     *
+     * @param employee Employee to save
+     * @return Employee
+     */
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeService.saveEmployee(employee);
     }
 
+    /**
+     * Get all employees
+     *
+     * @return Employee list
+     */
     @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
+    }
+
+    /**
+     * Find employee by id
+     *
+     * @param id Employee ID
+     * @return Employee
+     */
+    @GetMapping("{id}")
+    public Employee findEmployeeById(@PathVariable Long id) {
+        return employeeService.findEmployeeById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.mongodbrestapi.service.impl;
 
 import com.example.mongodbrestapi.entity.Employee;
+import com.example.mongodbrestapi.exception.ResourceNotFoundException;
 import com.example.mongodbrestapi.repository.EmployeeRepository;
 import com.example.mongodbrestapi.service.EmployeeService;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    @Override
+    public Employee findEmployeeById(Long id) {
+        return employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee", "ID", id));
     }
 }
