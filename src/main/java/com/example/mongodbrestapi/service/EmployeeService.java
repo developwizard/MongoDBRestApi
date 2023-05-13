@@ -27,4 +27,12 @@ public interface EmployeeService {
      * @return Employee
      */
     Employee findEmployeeById(Long id);
+
+    /**
+     * Update employee in DB
+     *
+     * @param employee Employee to update
+     * @return Updated employee
+     */
+    Employee updateEmployee(Employee employee);
 }
